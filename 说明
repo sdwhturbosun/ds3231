@@ -1,0 +1,13 @@
+如果要将ds3231配置为系统的硬件时钟，需要在/boot/config.txt中加入：dtoverlay=i2c-rtc,ds3231   
+但是加入这句之后，ds3231就不能通过编程控制了。需要注释＃掉。
+使用i2cdetect -y 1 查看，如果0x68位置显示UU则说明ds3231是作为系统硬件时钟，如果显示68则表示可以编程
+
+总结一下：
+要是想通过编程控制，知需要开启i2c，然后正确接入ds3231就可以了。网络里好多文章都是介绍如何配置为硬件时钟的，要注意
+关于这个的说明文章：树莓派系列教程16：RTC - 树莓派 微雪课堂
+
+编程参考下面的文章：
+https://baike.baidu.com/item/DS1337/9667160?fr=aladdin（关于ds3231的详细介绍）
+http://blog.sina.com.cn/s/blog_bf63e2650102wi96.html（关于ds3231的详细介绍）
+https://www.cnblogs.com/yafengabc/p/5107768.html（python wiring )
+
